@@ -21,6 +21,10 @@ header {
         align-items: center;
         gap: 2rem;
 
+        a {
+            color: inherit;
+        }
+
         .login-link {
             background-color: rgba(18, 77, 16, 0.6588);
             padding: 1rem 1.5rem;

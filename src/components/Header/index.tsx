@@ -1,7 +1,10 @@
 import { FC } from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
-const Header: FC<{ isLogged: boolean }> = ({ isLogged }) => {
+import { useAuth } from "../../contexts/AuthContext";
+
+const Header: FC = () => {
+  const { isLogged, login, logout } = useAuth();
   return (
     <header className="navbar">
       <ul>
@@ -9,11 +12,15 @@ const Header: FC<{ isLogged: boolean }> = ({ isLogged }) => {
           AnimaVenire
         </Link>
         <div id="navbar-items">
-          <li className="navbar-item">Animais</li>
-          <li className="navbar-item">Mapa</li>
+          <li className="navbar-item">
+            <Link to={""}>Animais</Link>
+          </li>
+          <li className="navbar-item">
+            <Link to={""}>Mapa</Link>
+          </li>
           {isLogged ? (
             <li className="navbar-item">
-              <Link className="login-link" to={"/login"}>
+              <Link className="login-link" to={"/logout"}>
                 Sair
               </Link>
             </li>

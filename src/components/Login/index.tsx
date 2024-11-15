@@ -1,9 +1,45 @@
 import "./index.css";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import KeyIcon from "@mui/icons-material/Key";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
+
+const mockUser = {
+  email: "caio@duque.com",
+  password: "123",
+};
 
 export default function Login() {
+  const [emailInput, setEmailInput] = useState("");
+  const [passwordInput, setPasswordInput] = useState("");
+  const [error, setError] = useState("");
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleChangeEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError("");
+    setEmailInput(e.target.value);
+    console.log(passwordInput);
+  };
+
+  const handleChangePasswordInput = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setError("");
+    setPasswordInput(e.target.value);
+    console.log(passwordInput);
+  };
+
+  const validateCredentialsAndLogin = () => {
+    if (emailInput === mockUser.email && passwordInput === mockUser.password) {
+      login();
+      return navigate("/");
+    }
+
+    setError("* Email ou senha inválidos");
+  };
+
   return (
     <div id="login-container">
       <h1 className="title">Login</h1>
@@ -12,18 +48,29 @@ export default function Login() {
           <div className="icon-container">
             <AlternateEmailIcon />
           </div>
-          <input type="text" placeholder="Usuário" />
+          <input
+            type="text"
+            value={emailInput}
+            onChange={handleChangeEmailInput}
+            placeholder="Email"
+          />
         </div>
         <div className="input-container">
           <KeyIcon />
-          <input type="password" placeholder="Senha" />
+          <input
+            type="password"
+            placeholder="Senha"
+            value={passwordInput}
+            onChange={handleChangePasswordInput}
+          />
         </div>
-        <div className="remember-be">
-          <input type="checkbox" name="rememberMe" id="" />
+        <div className="remember-me">
+          <p className="form-error">{error}</p>
+          <input id="" type="checkbox" name="rememberMe" />
           <label htmlFor="rememberMe">Lembre-se de mim</label>
         </div>
 
-        <button>Entrar</button>
+        <button onClick={validateCredentialsAndLogin}>Entrar</button>
       </div>
       <div className="not-a-member">
         <p>

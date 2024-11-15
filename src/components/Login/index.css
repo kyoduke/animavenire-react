@@ -1,6 +1,7 @@
 #login-container {
   margin: 20rem auto;
   padding: 3rem 3rem;
+  background-color: #FFF;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -57,13 +58,19 @@
         padding-left: 1rem;
       }
 
-      .icon-container {
-      }
     }
     
-    .remember-be {
+    .remember-me {
       display: flex;
       gap: 1.4rem;
+      position: relative;
+
+      .form-error {
+        color: red;
+        position: absolute;
+        font-size: 1.2rem;
+        top: -20px;
+      }
     }
   }
   .not-a-member {
