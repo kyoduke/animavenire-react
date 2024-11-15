@@ -59,6 +59,11 @@
         width: 100%;
         padding-left: 1rem;
 
+        &::placeholder {
+          letter-spacing: 0.1rem;
+          color: hsla(100, 100%, 0%, 0.4);
+        }
+
         &:focus {
           outline: 0.2rem solid hsla(var(--anima-green), 0.35);
         }
