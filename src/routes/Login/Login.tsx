@@ -1,8 +1,8 @@
-import Header from "../../components/Header/Header";
-import Login from "../../components/Login/Login";
+import { Header } from "../../components/Header/Header";
+import { Login } from "../../components/Login/Login";
 import "./index.css";
 
-export default function LoginPage() {
+function LoginPage() {
   // TODO: Login Page
   return (
     <>
@@ -11,3 +11,5 @@ export default function LoginPage() {
     </>
   );
 }
+
+export { LoginPage };

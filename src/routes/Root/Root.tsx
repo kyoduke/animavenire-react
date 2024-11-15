@@ -1,7 +1,7 @@
-import Header from "../../components/Header/Header";
+import { Header } from "../../components/Header/Header";
 import "./index.css";
 
-export default function Root() {
+function Root() {
   return (
     <>
       <Header />
@@ -11,3 +11,5 @@ export default function Root() {
     </>
   );
 }
+
+export { Root };

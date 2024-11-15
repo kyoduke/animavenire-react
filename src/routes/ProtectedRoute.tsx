@@ -16,4 +16,4 @@ const ProtectedRoute: FC<Props> = ({ children }) => {
   return children;
 };
 
-export default ProtectedRoute;
+export { ProtectedRoute };

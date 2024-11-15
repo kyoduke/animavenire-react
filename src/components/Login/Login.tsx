@@ -6,11 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const mockUser = {
-  email: "caio@duque.com",
+  email: "teste",
   password: "123",
 };
 
-export default function Login() {
+function Login() {
   const [emailInput, setEmailInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [error, setError] = useState("");
@@ -80,3 +80,5 @@ export default function Login() {
     </div>
   );
 }
+
+export { Login };

@@ -8,6 +8,7 @@ header {
         color: rgba(18, 77, 16, 0.65);
     }
     ul {
+        
         height: 5rem;
         display: flex;
         list-style: none;
@@ -26,12 +27,19 @@ header {
         }
 
         .login-link {
+            border: none;
+            cursor: pointer;
             background-color: rgba(18, 77, 16, 0.6588);
             padding: 1rem 1.5rem;
             border-radius: 8px;
             color: white;
         }
     }
+}
+
+.modal-content {
+    background-color: #FFF;
+    padding: 5px;
 }
 
 @media (max-width: 600px) {
