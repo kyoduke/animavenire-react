@@ -2,7 +2,7 @@
 
 :root {
     font-size: 62.5%;
-    --anima-green: #124d10a6;
+    --anima-green: 118, 66%, 18%;
 }
 * {
     font-family: Roboto;
