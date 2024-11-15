@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const Header: FC = () => {
-  const { isLogged, login, logout } = useAuth();
+  const { isLogged, logout } = useAuth();
+
   return (
     <header className="navbar">
       <ul>
