@@ -6,6 +6,8 @@ import { Root } from "./routes/Root/Root.tsx";
 import { Logout } from "./routes/Logout/Logout.ts";
 import { LoginPage } from "./routes/Login/Login.tsx";
 import { AuthProvider } from "./contexts/AuthContext.tsx";
+import { ProtectedRoute } from "./routes/ProtectedRoute.tsx";
+import { AddPetPage } from "./routes/AddPetPage/AddPetPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout />,
+  },
+  {
+    path: "/add_pet",
+    element: (
+      <ProtectedRoute>
+        <AddPetPage />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
