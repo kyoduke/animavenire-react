@@ -6,25 +6,15 @@ import { Root } from "./routes/Root/Root.tsx";
 import { Logout } from "./routes/Logout/Logout.ts";
 import { LoginPage } from "./routes/Login/Login.tsx";
 import { AuthProvider } from "./contexts/AuthContext.tsx";
-import { ProtectedRoute } from "./routes/ProtectedRoute.tsx";
-import { PublicRoute } from "./routes/PublicRoute.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <ProtectedRoute>
-        <Root />
-      </ProtectedRoute>
-    ),
+    element: <Root />,
   },
   {
     path: "/login",
-    element: (
-      <PublicRoute>
-        <LoginPage />,
-      </PublicRoute>
-    ),
+    element: <LoginPage />,
   },
   {
     path: "/logout",

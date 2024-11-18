@@ -4,7 +4,7 @@ import "./Modal.css";
 interface Props {
   children: ReactNode;
   isOpened: boolean;
-  setIsOpened();
+  setIsOpened(): void;
 }
 function Modal({ children, isOpened, setIsOpened }: Props) {
   if (!isOpened) {

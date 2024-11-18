@@ -1,9 +1,14 @@
+import { Navigate } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import { Login } from "../../components/Login/Login";
+import { useAuth } from "../../contexts/AuthContext";
 import "./index.css";
 
 function LoginPage() {
-  // TODO: Login Page
+  const { isLogged } = useAuth();
+  if (isLogged) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <>
       <Header />

@@ -12,10 +12,17 @@ const AuthContext = createContext({
 });
 
 export const AuthProvider = ({ children }: Props) => {
-  const [isLogged, setIsLogged] = useState(false);
+  const isLoggedLS = localStorage.getItem("isLogged");
+  const [isLogged, setIsLogged] = useState(isLoggedLS == "true" ? true : false);
 
-  const login = () => setIsLogged(true);
-  const logout = () => setIsLogged(false);
+  const login = () => {
+    setIsLogged(true);
+    localStorage.setItem("isLogged", "true");
+  };
+  const logout = () => {
+    setIsLogged(false);
+    localStorage.setItem("isLogged", "false");
+  };
 
   return (
     <AuthContext.Provider value={{ isLogged, login, logout }}>

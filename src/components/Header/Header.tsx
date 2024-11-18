@@ -9,12 +9,8 @@ const Header: FC = () => {
   const [logoutModal, setLogoutModal] = useState(false);
   const navigate = useNavigate();
 
-  function toggleLogoutModal() {
-    setLogoutModal(!logoutModal);
-  }
-
   return (
-    <>
+    <div id="header-component">
       <header className="navbar">
         <ul>
           <Link className={"main-link"} to={"/"}>
@@ -29,7 +25,10 @@ const Header: FC = () => {
             </li>
             {isLogged ? (
               <li className="navbar-item">
-                <button onClick={toggleLogoutModal} className="login-link">
+                <button
+                  onClick={() => setLogoutModal(!logoutModal)}
+                  className="login-link"
+                >
                   Sair
                 </button>
               </li>
@@ -43,14 +42,30 @@ const Header: FC = () => {
           </div>
         </ul>
       </header>
-      <Modal isOpened={logoutModal} setIsOpened={toggleLogoutModal}>
+      <Modal
+        isOpened={logoutModal}
+        setIsOpened={() => setLogoutModal(!logoutModal)}
+      >
         <div onClick={(e) => e.stopPropagation()} className="modal-content">
-          <p>Deseja sair?</p>
-          <button onClick={() => navigate("/logout")}>Sim</button>
-          <button>Não</button>
+          <div className="title">
+            <p>Sair da conta</p>
+          </div>
+          <div className="modal-text">
+            <p>Tem certeza de que deseja sair da sua conta?</p>
+            <p> Você precisará fazer login novamente para acessar.</p>
+          </div>
+          <div className="modal-buttons">
+            <button onClick={() => navigate("/logout")}>Sair</button>
+            <button
+              className="cancel-btn"
+              onClick={() => setLogoutModal(!logoutModal)}
+            >
+              Cancelar
+            </button>
+          </div>
         </div>
       </Modal>
-    </>
+    </div>
   );
 };
 

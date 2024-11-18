@@ -1,5 +1,14 @@
 {
   "tabWidth": 2,
   "useTabs": false,
-  "singleQuote": false
+  "singleQuote": false,
+
+  "overrides": [
+    {
+      "files": "*.css",
+      "options": {
+        "tabWidth": 4
+      }
+    }
+  ]
 }

@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 
 const mockUser = {
-  email: "teste",
+  email: "test",
   password: "123",
 };
 
@@ -20,7 +20,6 @@ function Login() {
   const handleChangeEmailInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setError("");
     setEmailInput(e.target.value);
-    console.log(passwordInput);
   };
 
   const handleChangePasswordInput = (
@@ -28,7 +27,6 @@ function Login() {
   ) => {
     setError("");
     setPasswordInput(e.target.value);
-    console.log(passwordInput);
   };
 
   const validateCredentialsAndLogin = () => {
