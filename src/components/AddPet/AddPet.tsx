@@ -3,12 +3,13 @@ import { statesData } from "../../data/state-city";
 import "./AddPet.css";
 
 export const AddPet = () => {
-  const [selectStateValue, setSelectStateValue] = useState(
-    statesData[0].stateName
-  );
-  const [selectCityValue, setSelectCityValue] = useState(
-    statesData[0].cities[0].cityName
-  );
+  const [formData, setFormData] = useState({
+    description: "",
+    address: "",
+    state: statesData[0].stateName,
+    city: statesData[0].cities[0].cityName,
+  });
+
   const addPetToStorage = () => {};
 
   const stateOptions = statesData.map((state) => (
@@ -18,7 +19,7 @@ export const AddPet = () => {
   ));
 
   const cityOptions = statesData
-    .find((state) => state.stateName == selectStateValue)
+    .find((state) => state.stateName == formData.state)
     ?.cities.map((city) => (
       <option value={city.cityName} key={city.city_ID}>
         {city.cityName}
@@ -29,21 +30,38 @@ export const AddPet = () => {
     e: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const value = e.target.value;
-    setSelectStateValue(value);
+    setFormData({ ...formData, state: value });
+  };
+
+  const submitFormData = () => {
+    console.log(formData);
   };
 
   return (
     <>
       <div id="root-add-pet">
         <div className="container">
-          <h1>Adicionar animal perdido</h1>
+          <h1 id="title">Adicionar animal perdido</h1>
           <div className="form-control">
             <p>Descrição do animal</p>
-            <textarea name="" id="id-description"></textarea>
+            <textarea
+              name=""
+              id="id-description"
+              onChange={(e) =>
+                setFormData({ ...formData, description: e.target.value })
+              }
+              value={formData.description}
+            ></textarea>
           </div>
           <div className="form-control">
             <p>Endereço onde foi visto pela última vez</p>
-            <input type="text" />
+            <input
+              type="text"
+              onChange={(e) =>
+                setFormData({ ...formData, address: e.target.value })
+              }
+              value={formData.address}
+            />
           </div>
           <div className="form-control">
             <p>Estado</p>
@@ -51,7 +69,7 @@ export const AddPet = () => {
               name="state-select"
               id="id-state-select"
               onChange={handleOnChangeStateSelect}
-              value={selectStateValue}
+              value={formData.state}
             >
               {stateOptions}
             </select>
@@ -61,11 +79,16 @@ export const AddPet = () => {
             <select
               name="city-select"
               id="id-city-select"
-              onChange={(e) => setSelectCityValue(e.target.value)}
-              value={selectCityValue}
+              onChange={(e) =>
+                setFormData({ ...formData, city: e.target.value })
+              }
+              value={formData.city}
             >
               {cityOptions}
             </select>
+          </div>
+          <div className="form-control button">
+            <button onClick={submitFormData}>Enviar</button>
           </div>
         </div>
       </div>
