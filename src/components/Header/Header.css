@@ -8,7 +8,6 @@
         color: rgba(18, 77, 16, 0.65);
     }
     ul {
-        height: 5rem;
         display: flex;
         list-style: none;
         align-items: center;
