@@ -17,7 +17,7 @@ export const AddPet = () => {
     city: statesData[0].cities[0].cityName,
   });
 
-  const addPetToStorage = () => {};
+  // const addPetToStorage = () => {};
 
   const stateOptions = statesData.map((state) => (
     <option key={state.id} value={state.stateName}>
