@@ -23,7 +23,7 @@ const router = createBrowserRouter([
     element: <Logout />,
   },
   {
-    path: "/add_pet",
+    path: "/add-pet",
     element: (
       <ProtectedRoute>
         <AddPetPage />

@@ -2,6 +2,13 @@ import { useState } from "react";
 import { statesData } from "../../data/state-city";
 import "./AddPet.css";
 
+interface FormData {
+  description: string;
+  address: string;
+  state: string;
+  city: string;
+}
+
 export const AddPet = () => {
   const [formData, setFormData] = useState({
     description: "",
@@ -34,7 +41,11 @@ export const AddPet = () => {
   };
 
   const submitFormData = () => {
-    console.log(formData);
+    const existingData = localStorage.getItem("petsData");
+    const data: [FormData] = existingData ? JSON.parse(existingData) : [];
+    data.push(formData);
+    localStorage.setItem("petsData", JSON.stringify(data));
+    setFormData({ ...formData, description: "", address: "" });
   };
 
   return (

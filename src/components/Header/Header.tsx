@@ -18,7 +18,7 @@ const Header: FC = () => {
           </Link>
           <div id="navbar-items">
             <li className="navbar-item">
-              <Link to={""}>Animais</Link>
+              <Link to={"/add-pet"}>Adicionar Animal</Link> {/* Provisório */}
             </li>
             <li className="navbar-item">
               <Link to={""}>Mapa</Link>

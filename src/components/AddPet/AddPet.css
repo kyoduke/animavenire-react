@@ -9,6 +9,7 @@
         flex-direction: column;
         border-radius: 0.2rem;
         width: 50%;
+        min-width: fit-content;
         padding: 2rem 0;
         background-color: white;
 
@@ -22,7 +23,7 @@
         .form-control {
             display: flex;
             flex-direction: column;
-            margin: 2rem 20%;
+            margin: 2rem 10%;
             font-size: 1.8rem;
 
             input,
@@ -36,13 +37,19 @@
                 width: 100%;
             }
         }
+
         .button {
             padding: 0 20%;
             button {
                 padding: 1rem;
                 font-size: 2rem;
+                color: #fff;
+                border-radius: 0.5rem;
+                min-width: fit-content;
+                background-color: hsla(var(--anima-green), 0.65);
             }
         }
+
         h1 {
             text-align: center;
         }

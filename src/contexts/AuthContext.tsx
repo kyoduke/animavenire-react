@@ -5,7 +5,7 @@ interface Props {
   children?: ReactNode;
 }
 
-const AuthContext = createContext({
+export const AuthContext = createContext({
   isLogged: false,
   login: () => {},
   logout: () => {},

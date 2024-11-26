@@ -1,0 +1,12 @@
+.pets-feed {
+    margin: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .pet-card {
+        flex-grow: 1;
+        border: 1px solid black;
+        padding: 0.5rem;
+    }
+}
