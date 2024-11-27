@@ -11,7 +11,7 @@ function Root() {
       {isLogged ? (
         <PetsFeed />
       ) : (
-        <div className="info-container">
+        <div className="container">
           <h2>Bem-vindo ao AnimaVenire</h2>
           <p>
             AnimaVenire é uma plataforma dedicada a ajudar animais perdidos a
