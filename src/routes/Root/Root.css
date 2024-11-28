@@ -1,18 +1,49 @@
 .container {
     position: relative;
     gap: 1rem;
-    padding: 0 6rem;
-    background-image: url("/public/img/landing-page-image.jpg");
-    background-size: cover;
     height: calc(100vh - 7rem);
-}
 
-.info-container h2 {
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
-}
+    .main-container {
+        display: flex;
+        .main-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            background-color: #226837;
+            padding: 3rem 2rem;
 
-.info-container p {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+            h1 {
+                font-family: NewReader;
+                font-size: 8rem;
+                color: white;
+                margin-bottom: 5rem;
+            }
+            p {
+                font-size: 2.5rem;
+                letter-spacing: 0.12rem;
+                color: white;
+            }
+            button {
+                align-self: center;
+                width: fit-content;
+                margin-top: 8rem;
+                font-size: 3.2rem;
+                padding: 2rem;
+                border: none;
+                border-radius: 0.5rem;
+                background-color: whitesmoke;
+
+                &:hover {
+                }
+            }
+        }
+
+        .image-container {
+            max-width: 60%;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
 }
